@@ -4,9 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffb09780-1bf9-4056-acf4-23340ed49e5a" name="Changes" comment="create">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="ffb09780-1bf9-4056-acf4-23340ed49e5a" name="Changes" comment="0.1">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-deployment-example.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Buffer/Buffer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Hasher/Hasher.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SharedMap/ISharedMapInitData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SharedMap/SharedMap.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/benchmarks/benchmark.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/benchmarks/proxyServer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/benchmarks/server/controllers/taskController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/benchmarks/server/routes/tasks.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/benchmarks/server/server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/benchmarks/server/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/benchmarks/utils/generateTasks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/helpers/MessageToMain.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/helpers/MessageToWorker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/helpers/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/helpers/worker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/tests/SharedMap.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/tests/withWorkers/mainThread.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/swap-history.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/swap-history.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +63,9 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2WzT60bdCRJwae6zWfwhoRgcGHj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -49,17 +76,19 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;21.0.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.8.7&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/aemon/Desktop/projects/project-template-ts&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;21.5.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.10.6&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/aemon/Desktop/projects/shared-map&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;C:/Users/aemon/Desktop/projects/shared-map/node_modules/jest&quot;,
+    &quot;nodejs.mocha.mocha_node_package_dir&quot;: &quot;C:/Users/aemon/Desktop/projects/shared-map/node_modules/mocha&quot;,
     &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2022.1.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.TypeScript&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\aemon\\Desktop\\projects\\shared-map\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -69,9 +98,65 @@
   }
 }</component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\aemon\Desktop\projects\swap-history" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\aemon\Desktop\projects\shared-map" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aemon\Desktop\projects\shared-map\test\benchmarks\utils" />
+      <recent name="C:\Users\aemon\Desktop\projects\shared-map\test\benchmarks\server" />
+      <recent name="C:\Users\aemon\Desktop\projects\shared-map\test" />
+      <recent name="C:\Users\aemon\Desktop\projects\shared-map\test\helpers" />
+      <recent name="C:\Users\aemon\Desktop\projects\shared-map\test\tests" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Jest.SharedMap with Worker Threads">
+    <configuration name="SharedMap with Worker Threads" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/test/tests/withWorkers/mainThread.ts" />
+      <test-names>
+        <test-name value="SharedMap with Worker Threads" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="SharedMap with Worker Threads.performs random tasks correctly" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/test/tests/withWorkers/mainThread.ts" />
+      <test-names>
+        <test-name value="SharedMap with Worker Threads" />
+        <test-name value="performs random tasks correctly" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="SharedMap" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/test/SharedMap.ts</test-file>
+      <test-names>
+        <name value="SharedMap" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.SharedMap with Worker Threads" />
+        <item itemvalue="Jest.SharedMap with Worker Threads.performs random tasks correctly" />
+        <item itemvalue="Mocha.SharedMap" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -86,6 +171,25 @@
       <workItem from="1697753117474" duration="17000" />
       <workItem from="1697753164497" duration="2173000" />
       <workItem from="1697755613091" duration="488000" />
+      <workItem from="1703838770898" duration="1179000" />
+      <workItem from="1703925721700" duration="12232000" />
+      <workItem from="1704017871892" duration="277000" />
+      <workItem from="1704018251068" duration="16702000" />
+      <workItem from="1704105908284" duration="11618000" />
+      <workItem from="1704138979779" duration="4583000" />
+      <workItem from="1704197183642" duration="11341000" />
+      <workItem from="1704314033455" duration="6046000" />
+      <workItem from="1704336028797" duration="10255000" />
+      <workItem from="1704404286620" duration="10800000" />
+      <workItem from="1704429360540" duration="13083000" />
+      <workItem from="1704510140635" duration="13699000" />
+      <workItem from="1704612634878" duration="29442000" />
+      <workItem from="1704759846950" duration="586000" />
+      <workItem from="1704864908697" duration="4573000" />
+      <workItem from="1704960968662" duration="17744000" />
+      <workItem from="1705061559475" duration="12134000" />
+      <workItem from="1705153111652" duration="3126000" />
+      <workItem from="1705274013343" duration="4442000" />
     </task>
     <task id="LOCAL-00001" summary="create">
       <option name="closed" value="true" />
@@ -114,6 +218,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create" />
-    <option name="LAST_COMMIT_MESSAGE" value="create" />
+    <MESSAGE value="0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.1" />
   </component>
 </project>

@@ -1,0 +1,24 @@
+{
+  "name": "shared-map",
+  "version": "1.0.0",
+  "description": "Описание вашего пакета",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "map",
+    "shared",
+    "data-structure"
+  ],
+  "author": "Ваше имя",
+  "license": "ISC",
+  "files": [
+    "build/**/*",
+    "README.md",
+    "LICENSE"
+  ]
+}
