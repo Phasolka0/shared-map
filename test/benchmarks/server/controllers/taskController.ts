@@ -39,7 +39,7 @@ function regenerateData() {
 	}
 }
 
-regenerateData(); // Инициализация при старте сервера
+regenerateData();
 
 export const handleTaskRequest = async (req: Request, res: Response) => {
 	const {classType, method}: { classType: ClassType, method: MethodType } = req.body;
@@ -82,7 +82,7 @@ export const handleTaskRequest = async (req: Request, res: Response) => {
 function getRandomKeys(keysCache: number[], numberOfKeys: number) {
 	const result = new Array(numberOfKeys);
 	const taken = new Array(numberOfKeys);
-	let maxIndex = MAX_KEYS; // Используйте переменную для уменьшения индекса
+	let maxIndex = MAX_KEYS;
 	
 	for (let i = 0; i < numberOfKeys; i++) {
 		let x = Math.floor(Math.random() * (maxIndex - i));
