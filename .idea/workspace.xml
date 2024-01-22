@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffb09780-1bf9-4056-acf4-23340ed49e5a" name="Changes" comment="0.1.1">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/benchmarks/server/controllers/taskController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/benchmarks/server/controllers/taskController.ts" afterDir="false" />
+    <list default="true" id="ffb09780-1bf9-4056-acf4-23340ed49e5a" name="Changes" comment="0.1.2 build">
+      <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +165,7 @@
       <workItem from="1705153111652" duration="3126000" />
       <workItem from="1705274013343" duration="6227000" />
       <workItem from="1705671286981" duration="578000" />
-      <workItem from="1705880212336" duration="4627000" />
+      <workItem from="1705880212336" duration="4735000" />
     </task>
     <task id="LOCAL-00001" summary="create">
       <option name="closed" value="true" />
@@ -192,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705884394343</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="0.1.2 build">
+      <option name="closed" value="true" />
+      <created>1705903913809</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705903913809</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +220,7 @@
     <MESSAGE value="create" />
     <MESSAGE value="0.1" />
     <MESSAGE value="0.1.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.1.1" />
+    <MESSAGE value="0.1.2 build" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.1.2 build" />
   </component>
 </project>
