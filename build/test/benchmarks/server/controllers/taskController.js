@@ -31,7 +31,7 @@ function regenerateData() {
         getKeysPool[i] = getRandomKeys(keysCache, NUMBER_OF_GET_KEYS);
     }
 }
-regenerateData(); // Инициализация при старте сервера
+regenerateData();
 export const handleTaskRequest = async (req, res) => {
     const { classType, method } = req.body;
     const usedMap = classType === 'SimpleMap' ? map : sharedMap;
@@ -74,7 +74,7 @@ export const handleTaskRequest = async (req, res) => {
 function getRandomKeys(keysCache, numberOfKeys) {
     const result = new Array(numberOfKeys);
     const taken = new Array(numberOfKeys);
-    let maxIndex = MAX_KEYS; // Используйте переменную для уменьшения индекса
+    let maxIndex = MAX_KEYS;
     for (let i = 0; i < numberOfKeys; i++) {
         let x = Math.floor(Math.random() * (maxIndex - i));
         result[i] = keysCache[x in taken ? taken[x] : x];
