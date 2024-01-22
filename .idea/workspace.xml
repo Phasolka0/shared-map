@@ -5,33 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffb09780-1bf9-4056-acf4-23340ed49e5a" name="Changes" comment="0.1">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-deployment-example.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Buffer/Buffer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Hasher/Hasher.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SharedMap/ISharedMapInitData.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SharedMap/SharedMap.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/benchmarks/benchmark.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/benchmarks/proxyServer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/benchmarks/server/controllers/taskController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/benchmarks/server/routes/tasks.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/benchmarks/server/server.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/benchmarks/server/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/benchmarks/utils/generateTasks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/helpers/MessageToMain.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/helpers/MessageToWorker.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/helpers/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/helpers/worker.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/tests/SharedMap.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/tests/withWorkers/mainThread.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/swap-history.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/swap-history.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/benchmarks/server/controllers/taskController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/benchmarks/server/controllers/taskController.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +165,9 @@
       <workItem from="1704960968662" duration="17744000" />
       <workItem from="1705061559475" duration="12134000" />
       <workItem from="1705153111652" duration="3126000" />
-      <workItem from="1705274013343" duration="4442000" />
+      <workItem from="1705274013343" duration="6227000" />
+      <workItem from="1705671286981" duration="578000" />
+      <workItem from="1705880212336" duration="2218000" />
     </task>
     <task id="LOCAL-00001" summary="create">
       <option name="closed" value="true" />
@@ -199,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697755119684</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="0.1">
+      <option name="closed" value="true" />
+      <created>1705285676618</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705285676618</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
