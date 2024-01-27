@@ -142,14 +142,7 @@ export default class SharedMap implements ISharedMap {
 	}
 	
 	private incrementActiveSets() {
-		try {
-			Atomics.add(this.activeSets, 0, 1);
-		} catch (e) {
-			console.log(e)
-			console.log(this)
-			throw e
-		}
-		
+		Atomics.add(this.activeSets, 0, 1);
 	}
 	private decrementActiveSets() {
 		Atomics.sub(this.activeSets, 0, 1);
@@ -177,7 +170,6 @@ export default class SharedMap implements ISharedMap {
 		
 		return hash % this.maxSize;
 	}
-	
 	private hash2(key: number): number {
 		let hash = Math.floor(key * this.scalingFactor);
 		
@@ -207,7 +199,6 @@ export default class SharedMap implements ISharedMap {
 			}
 		}
 	}
-	
 	private findIndexForGet(key: number): number {
 		let index = this.hash1(key);
 		let step = this.hash2(key);
