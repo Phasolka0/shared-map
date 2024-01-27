@@ -16,7 +16,7 @@ describe('SharedMap with Worker Threads', () => {
 	let stop = false
 	
 	beforeAll(() => {
-		sharedMap = new SharedMap({size: 100000});
+		sharedMap = new SharedMap({size: 100003});
 		const initData = sharedMap.exportInitData()
 		
 		const workerFilePath = path.resolve(__dirname, '../../../build/test/helpers/worker.js');

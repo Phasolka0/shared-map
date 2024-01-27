@@ -142,7 +142,14 @@ export default class SharedMap implements ISharedMap {
 	}
 	
 	private incrementActiveSets() {
-		Atomics.add(this.activeSets, 0, 1);
+		try {
+			Atomics.add(this.activeSets, 0, 1);
+		} catch (e) {
+			console.log(e)
+			console.log(this)
+			throw e
+		}
+		
 	}
 	private decrementActiveSets() {
 		Atomics.sub(this.activeSets, 0, 1);

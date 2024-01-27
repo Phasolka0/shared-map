@@ -98,7 +98,14 @@ export default class SharedMap {
         };
     }
     incrementActiveSets() {
-        Atomics.add(this.activeSets, 0, 1);
+        try {
+            Atomics.add(this.activeSets, 0, 1);
+        }
+        catch (e) {
+            console.log(e);
+            console.log(this);
+            throw e;
+        }
     }
     decrementActiveSets() {
         Atomics.sub(this.activeSets, 0, 1);

@@ -4,51 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffb09780-1bf9-4056-acf4-23340ed49e5a" name="Changes" comment="0.1.4 fix">
-      <change afterPath="$PROJECT_DIR$/src/utils/findNextPrime.ts" afterDir="false" />
+    <list default="true" id="ffb09780-1bf9-4056-acf4-23340ed49e5a" name="Changes" comment="0.2.0 New hash logic, collision fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/jest.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/jest.config.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/Buffer/Buffer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/Buffer/Buffer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/Hasher/Hasher.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/Hasher/Hasher.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/SharedMap/ISharedMapInitData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/SharedMap/ISharedMapInitData.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/SharedMap/SharedMap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/src/SharedMap/SharedMap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/benchmarks/benchmark.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/benchmarks/benchmark.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/benchmarks/proxyServer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/benchmarks/proxyServer.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/benchmarks/server/controllers/taskController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/benchmarks/server/controllers/taskController.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/benchmarks/server/routes/tasks.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/benchmarks/server/routes/tasks.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/benchmarks/server/server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/benchmarks/server/server.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/benchmarks/server/types.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/benchmarks/server/types.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/benchmarks/utils/generateTasks.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/benchmarks/utils/generateTasks.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/helpers/MessageToMain.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/helpers/MessageToMain.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/helpers/MessageToWorker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/helpers/MessageToWorker.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/helpers/utils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/helpers/utils.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/helpers/worker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/helpers/worker.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/tests/SharedMap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/tests/SharedMap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/tests/withWorkers/mainThread.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test/tests/withWorkers/mainThread.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test/tests/SharedMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/test/tests/SharedMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test/tests/SharedMap.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/test/tests/SharedMap.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test/tests/withWorkers/mainThread.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/test/tests/withWorkers/mainThread.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SharedMap/SharedMap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedMap/SharedMap.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/helpers/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/helpers/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/helpers/worker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/helpers/worker.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/tests/SharedMap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/tests/SharedMap.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/tests/withWorkers/mainThread.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/tests/withWorkers/mainThread.ts" afterDir="false" />
     </list>
@@ -215,7 +176,7 @@
       <workItem from="1706070397572" duration="8838000" />
       <workItem from="1706124639642" duration="4202000" />
       <workItem from="1706222588730" duration="6892000" />
-      <workItem from="1706331465359" duration="16609000" />
+      <workItem from="1706331465359" duration="19536000" />
     </task>
     <task id="LOCAL-00001" summary="create">
       <option name="closed" value="true" />
@@ -273,7 +234,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705904126943</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="0.2.0 New hash logic, collision fix">
+      <option name="closed" value="true" />
+      <created>1706368402280</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1706368402280</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,6 +266,7 @@
     <MESSAGE value="0.1.2 build" />
     <MESSAGE value="0.1.3 export default" />
     <MESSAGE value="0.1.4 fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.1.4 fix" />
+    <MESSAGE value="0.2.0 New hash logic, collision fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.2.0 New hash logic, collision fix" />
   </component>
 </project>

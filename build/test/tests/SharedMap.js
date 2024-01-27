@@ -1,7 +1,7 @@
 import SharedMap from "../../src/SharedMap/SharedMap";
 import { generateRandomNumber } from "../helpers/utils";
 let sharedMap;
-const size = 5003;
+const size = 100003;
 describe('SharedMap', () => {
     beforeAll(() => {
         sharedMap = new SharedMap({ size });
