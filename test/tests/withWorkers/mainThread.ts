@@ -85,10 +85,22 @@ describe('SharedMap with Worker Threads', () => {
 		for (let i = 0; i < testRounds; ++i) {
 			for (let j = 0; j < tasksPerRound; ++j) {
 				if (stop) throw 'Unexpected value in GET'
-				sendRandomTask(workers[Math.floor(Math.random() * workersCount)]);
+				
+				if (Math.random() > 1) {
+					// Выполняем задачу в основном потоке
+					const key = generateRandomNumber();
+					const value = generateRandomNumber();
+					console.log('set')
+					sharedMap.set(key, value);
+					console.log('end')
+					receiveMessage({type: 'set-complete', key, value, index: 0})
+				} else {
+					// Выполняем задачу в воркере
+					sendRandomTask(workers[Math.floor(Math.random() * workersCount)]);
+				}
 			}
 		}
-		console.log(sharedMap)
+		//console.log(sharedMap)
 	});
 	
 	it('clears the map correctly', async () => {
@@ -99,12 +111,12 @@ describe('SharedMap with Worker Threads', () => {
 		// Проверка, что все значения были очищены
 		lastWrittenValues.forEach((_: number, key: number) => {
 			const sharedMapValue = sharedMap.get(key);
-			expect(sharedMapValue).toEqual(-1); // или другое значение, обозначающее "пусто"
+			expect(sharedMapValue).toEqual(-1);
 		})
 		
 		// Проверка, что размер карты равен 0
 		expect(sharedMap.size).toEqual(0);
-		console.log(sharedMap)
+		//console.log(sharedMap)
 	});
 	
 	afterAll(async () => {

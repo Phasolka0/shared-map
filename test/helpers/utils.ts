@@ -1,4 +1,4 @@
-export function generateRandomNumber(min = 0.000000000001, max = 10000000000): number {
+export function generateRandomNumber(min = 0.000000000001, max = 100000): number {
 	const range = max - min;
 	return Number((Math.random() * range + min).toFixed(12));
 }

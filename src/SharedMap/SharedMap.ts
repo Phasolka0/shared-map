@@ -1,4 +1,5 @@
 import ISharedMapInitData from "./ISharedMapInitData";
+import findNextPrime from "../utils/findNextPrime.js";
 
 interface ISharedMap {
 	// sharedArrayBuffer: SharedArrayBuffer
@@ -16,6 +17,7 @@ type SharedMapConstructorOParams = {
 	size?: number
 	sharedArrayBuffer?: SharedArrayBuffer
 	maxPrecision?: number
+	maxProbeStepsPercent?: number
 }
 
 export default class SharedMap implements ISharedMap {
@@ -32,7 +34,13 @@ export default class SharedMap implements ISharedMap {
 	scalingFactor: number
 	private readonly maxProbeSteps: number;
 	
-	constructor({size = 4096, sharedArrayBuffer, maxPrecision = 12}: SharedMapConstructorOParams = {}) {
+	constructor({
+					size = 4097,
+					sharedArrayBuffer,
+					maxPrecision = 12,
+					maxProbeStepsPercent = 1
+				}: SharedMapConstructorOParams = {}) {
+		size = findNextPrime(size)
 		if (sharedArrayBuffer) {
 			this.sharedArrayBuffer = sharedArrayBuffer;
 		} else {
@@ -68,7 +76,7 @@ export default class SharedMap implements ISharedMap {
 		}
 		this.maxPrecision = maxPrecision
 		this.scalingFactor = 10 ** maxPrecision
-		this.maxProbeSteps = Math.ceil(size * 0.001);
+		this.maxProbeSteps = Math.ceil(size * maxProbeStepsPercent);
 	}
 	
 	get size(): number {
@@ -94,7 +102,6 @@ export default class SharedMap implements ISharedMap {
 		this.releaseLock(index)
 		this.decrementActiveSets();
 	}
-	
 	get(key: number): number {
 		
 		const index = this.findIndexForGet(key)
@@ -105,7 +112,6 @@ export default class SharedMap implements ISharedMap {
 			return this.valuesArray[index]
 		} else return -1
 	}
-	
 	async clear() {
 		//console.log('clear')
 		this.acquireGlobalLock();
@@ -138,7 +144,6 @@ export default class SharedMap implements ISharedMap {
 	private incrementActiveSets() {
 		Atomics.add(this.activeSets, 0, 1);
 	}
-	
 	private decrementActiveSets() {
 		Atomics.sub(this.activeSets, 0, 1);
 	}
@@ -147,37 +152,58 @@ export default class SharedMap implements ISharedMap {
 		Atomics.add(this.sizeArray, 0, 1);
 	}
 	
-	private keyToIndex(key: number): number {
-		let hash = Math.floor(key * this.scalingFactor)
+	// private keyToIndex(key: number): number {
+	// 	let hash = Math.floor(key * this.scalingFactor)
+	//
+	// 	hash = ((hash >> 16) ^ hash) * 0x45d9f3b
+	// 	hash = ((hash >> 16) ^ hash) * 0x45d9f3b
+	// 	hash = (hash >> 16) ^ hash
+	//
+	// 	return hash % this.maxSize
+	// }
+	private hash1(key: number): number {
+		let hash = Math.floor(key * this.scalingFactor);
 		
-		hash = ((hash >> 16) ^ hash) * 0x45d9f3b
-		hash = ((hash >> 16) ^ hash) * 0x45d9f3b
-		hash = (hash >> 16) ^ hash
+		hash = ((hash >> 15) ^ hash) * 0x85ebca6b;
+		hash = ((hash >> 13) ^ hash) * 0xc2b2ae35;
+		hash = (hash >> 16) ^ hash;
 		
-		return hash % this.maxSize
+		return hash % this.maxSize;
 	}
 	
-	findIndexForSet(key: number): number {
-		let index = this.keyToIndex(key);
+	private hash2(key: number): number {
+		let hash = Math.floor(key * this.scalingFactor);
+		
+		hash = ((hash >> 14) ^ hash) * 0x27d4eb2d;
+		hash = ((hash >> 12) ^ hash) * 0x165667b1;
+		hash = (hash >> 15) ^ hash;
+		
+		// Важно, чтобы hash2 возвращало ненулевое значение
+		return (hash % (this.maxSize - 1)) + 1;
+	}
+	
+	private findIndexForSet(key: number): number {
+		let index = this.hash1(key);
+		let step = this.hash2(key);
 		let count = 0;
-		//console.log(this.sizeArray[0], this.maxSize)
+		
 		while (true) {
 			const existedKey = this.keysArray[index];
 			
-			// Если ключ уже существует или массив заполнен и мы можем перезаписать существующий ключ
 			if (existedKey === key || existedKey === 0 || this.sizeArray[0] === this.maxSize) {
 				return index;
 			}
 			
-			index = (index + 1) % this.maxSize;
+			index = (index + step) % this.maxSize;
 			if (++count >= this.maxSize) {
 				throw new Error('Buffer loop detected, size: ' + this.maxSize);
 			}
 		}
 	}
 	
-	findIndexForGet(key: number): number {
-		let index = this.keyToIndex(key);
+	private findIndexForGet(key: number): number {
+		let index = this.hash1(key);
+		let step = this.hash2(key);
 		let count = 0;
 		
 		while (count <= this.maxProbeSteps) {
@@ -187,7 +213,7 @@ export default class SharedMap implements ISharedMap {
 				return index;
 			}
 			
-			index = (index + 1) % this.maxSize;
+			index = (index + step) % this.maxSize;
 			count++;
 		}
 		
@@ -202,7 +228,6 @@ export default class SharedMap implements ISharedMap {
 			Atomics.wait(this.lockArray, index, 1)
 		}
 	}
-	
 	private releaseLock(index: number) {
 		Atomics.store(this.lockArray, index, 0)
 		Atomics.notify(this.lockArray, index)
@@ -213,7 +238,6 @@ export default class SharedMap implements ISharedMap {
 			Atomics.wait(this.globalLockArray, 0, 1);
 		}
 	}
-	
 	private releaseGlobalLock() {
 		Atomics.store(this.globalLockArray, 0, 0);
 		Atomics.notify(this.globalLockArray, 0);

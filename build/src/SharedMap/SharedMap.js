@@ -1,3 +1,4 @@
+import findNextPrime from "../utils/findNextPrime.js";
 export default class SharedMap {
     sharedArrayBuffer;
     valuesArray;
@@ -10,7 +11,8 @@ export default class SharedMap {
     maxPrecision;
     scalingFactor;
     maxProbeSteps;
-    constructor({ size = 4096, sharedArrayBuffer, maxPrecision = 12 } = {}) {
+    constructor({ size = 4097, sharedArrayBuffer, maxPrecision = 12, maxProbeStepsPercent = 1 } = {}) {
+        size = findNextPrime(size);
         if (sharedArrayBuffer) {
             this.sharedArrayBuffer = sharedArrayBuffer;
         }
@@ -42,7 +44,7 @@ export default class SharedMap {
         }
         this.maxPrecision = maxPrecision;
         this.scalingFactor = 10 ** maxPrecision;
-        this.maxProbeSteps = Math.ceil(size * 0.001);
+        this.maxProbeSteps = Math.ceil(size * maxProbeStepsPercent);
     }
     get size() {
         return this.sizeArray[0];
@@ -104,38 +106,55 @@ export default class SharedMap {
     IncreaseSize() {
         Atomics.add(this.sizeArray, 0, 1);
     }
-    keyToIndex(key) {
+    // private keyToIndex(key: number): number {
+    // 	let hash = Math.floor(key * this.scalingFactor)
+    //
+    // 	hash = ((hash >> 16) ^ hash) * 0x45d9f3b
+    // 	hash = ((hash >> 16) ^ hash) * 0x45d9f3b
+    // 	hash = (hash >> 16) ^ hash
+    //
+    // 	return hash % this.maxSize
+    // }
+    hash1(key) {
         let hash = Math.floor(key * this.scalingFactor);
-        hash = ((hash >> 16) ^ hash) * 0x45d9f3b;
-        hash = ((hash >> 16) ^ hash) * 0x45d9f3b;
+        hash = ((hash >> 15) ^ hash) * 0x85ebca6b;
+        hash = ((hash >> 13) ^ hash) * 0xc2b2ae35;
         hash = (hash >> 16) ^ hash;
         return hash % this.maxSize;
     }
+    hash2(key) {
+        let hash = Math.floor(key * this.scalingFactor);
+        hash = ((hash >> 14) ^ hash) * 0x27d4eb2d;
+        hash = ((hash >> 12) ^ hash) * 0x165667b1;
+        hash = (hash >> 15) ^ hash;
+        // Важно, чтобы hash2 возвращало ненулевое значение
+        return (hash % (this.maxSize - 1)) + 1;
+    }
     findIndexForSet(key) {
-        let index = this.keyToIndex(key);
+        let index = this.hash1(key);
+        let step = this.hash2(key);
         let count = 0;
-        //console.log(this.sizeArray[0], this.maxSize)
         while (true) {
             const existedKey = this.keysArray[index];
-            // Если ключ уже существует или массив заполнен и мы можем перезаписать существующий ключ
             if (existedKey === key || existedKey === 0 || this.sizeArray[0] === this.maxSize) {
                 return index;
             }
-            index = (index + 1) % this.maxSize;
+            index = (index + step) % this.maxSize;
             if (++count >= this.maxSize) {
                 throw new Error('Buffer loop detected, size: ' + this.maxSize);
             }
         }
     }
     findIndexForGet(key) {
-        let index = this.keyToIndex(key);
+        let index = this.hash1(key);
+        let step = this.hash2(key);
         let count = 0;
         while (count <= this.maxProbeSteps) {
             const existedKey = this.keysArray[index];
             if (existedKey === key) {
                 return index;
             }
-            index = (index + 1) % this.maxSize;
+            index = (index + step) % this.maxSize;
             count++;
         }
         return -1; // Ключ не найден

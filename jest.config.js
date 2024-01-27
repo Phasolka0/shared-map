@@ -5,5 +5,8 @@ export default {
 	transform: {
 		'^.+\\.ts$': ['ts-jest', {tsconfig: './tsconfig.json'}],
 	},
-
+	moduleNameMapper: {
+		// Перенаправление запросов к .js файлам на .ts файлы
+		'^(.*)\\.js$': '$1',
+	},
 }
