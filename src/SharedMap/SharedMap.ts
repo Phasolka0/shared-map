@@ -1,5 +1,5 @@
-import ISharedMapInitData from "./ISharedMapInitData";
 import findNextPrime from "../utils/findNextPrime.js";
+import {SharedMapConstructorOParams} from "./SharedMapConstructorOParams";
 
 interface ISharedMap {
 	// sharedArrayBuffer: SharedArrayBuffer
@@ -11,13 +11,6 @@ interface ISharedMap {
 	
 	maxPrecision: number
 	scalingFactor: number
-}
-
-type SharedMapConstructorOParams = {
-	size?: number
-	sharedArrayBuffer?: SharedArrayBuffer
-	maxPrecision?: number
-	maxProbeStepsPercent?: number
 }
 
 export default class SharedMap implements ISharedMap {
@@ -38,7 +31,8 @@ export default class SharedMap implements ISharedMap {
 					size = 4097,
 					sharedArrayBuffer,
 					maxPrecision = 12,
-					maxProbeStepsPercent = 1
+					maxProbeStepsPercent = 1,
+					maxProbeSteps = undefined
 				}: SharedMapConstructorOParams = {}) {
 		size = findNextPrime(size)
 		if (sharedArrayBuffer) {
@@ -76,7 +70,7 @@ export default class SharedMap implements ISharedMap {
 		}
 		this.maxPrecision = maxPrecision
 		this.scalingFactor = 10 ** maxPrecision
-		this.maxProbeSteps = Math.ceil(size * maxProbeStepsPercent);
+		this.maxProbeSteps = maxProbeSteps === undefined ? Math.ceil(size * maxProbeStepsPercent) : maxProbeSteps;
 	}
 	
 	get size(): number {
@@ -134,10 +128,12 @@ export default class SharedMap implements ISharedMap {
 		//console.log('clear end')
 	}
 	
-	exportInitData(): ISharedMapInitData {
+	exportInitData(): SharedMapConstructorOParams {
 		return {
 			sharedArrayBuffer: this.sharedArrayBuffer,
-			size: this.maxSize
+			size: this.maxSize,
+			maxPrecision: this.maxPrecision,
+			maxProbeSteps: this.maxProbeSteps
 		};
 	}
 	
@@ -241,7 +237,7 @@ export default class SharedMap implements ISharedMap {
 		Atomics.notify(this.globalLockArray, 0);
 	}
 	
-	static connectWithInitData(data: ISharedMapInitData): SharedMap {
-		return new SharedMap({sharedArrayBuffer: data.sharedArrayBuffer, size: data.size});
+	static connectWithInitData(data: SharedMapConstructorOParams): SharedMap {
+		return new SharedMap({...data});
 	}
 }

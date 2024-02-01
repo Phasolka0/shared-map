@@ -1,6 +1,6 @@
-import ISharedMapInitData from "../../src/SharedMap/ISharedMapInitData";
+import {SharedMapConstructorOParams} from "../../src/SharedMap/SharedMapConstructorOParams";
 
 export type MessageToWorker =
-	| { type: 'init'; initData: ISharedMapInitData }
+	| { type: 'init'; initData: SharedMapConstructorOParams }
 	| { type: 'set'; key: number; value: number }
 	| { type: 'get'; key: number }

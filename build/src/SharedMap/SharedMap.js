@@ -11,7 +11,7 @@ export default class SharedMap {
     maxPrecision;
     scalingFactor;
     maxProbeSteps;
-    constructor({ size = 4097, sharedArrayBuffer, maxPrecision = 12, maxProbeStepsPercent = 1 } = {}) {
+    constructor({ size = 4097, sharedArrayBuffer, maxPrecision = 12, maxProbeStepsPercent = 1, maxProbeSteps = undefined } = {}) {
         size = findNextPrime(size);
         if (sharedArrayBuffer) {
             this.sharedArrayBuffer = sharedArrayBuffer;
@@ -44,7 +44,7 @@ export default class SharedMap {
         }
         this.maxPrecision = maxPrecision;
         this.scalingFactor = 10 ** maxPrecision;
-        this.maxProbeSteps = Math.ceil(size * maxProbeStepsPercent);
+        this.maxProbeSteps = maxProbeSteps === undefined ? Math.ceil(size * maxProbeStepsPercent) : maxProbeSteps;
     }
     get size() {
         return this.sizeArray[0];
@@ -94,18 +94,13 @@ export default class SharedMap {
     exportInitData() {
         return {
             sharedArrayBuffer: this.sharedArrayBuffer,
-            size: this.maxSize
+            size: this.maxSize,
+            maxPrecision: this.maxPrecision,
+            maxProbeSteps: this.maxProbeSteps
         };
     }
     incrementActiveSets() {
-        try {
-            Atomics.add(this.activeSets, 0, 1);
-        }
-        catch (e) {
-            console.log(e);
-            console.log(this);
-            throw e;
-        }
+        Atomics.add(this.activeSets, 0, 1);
     }
     decrementActiveSets() {
         Atomics.sub(this.activeSets, 0, 1);
@@ -188,7 +183,7 @@ export default class SharedMap {
         Atomics.notify(this.globalLockArray, 0);
     }
     static connectWithInitData(data) {
-        return new SharedMap({ sharedArrayBuffer: data.sharedArrayBuffer, size: data.size });
+        return new SharedMap({ ...data });
     }
 }
 //# sourceMappingURL=SharedMap.js.map

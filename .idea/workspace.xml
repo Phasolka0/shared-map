@@ -4,9 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffb09780-1bf9-4056-acf4-23340ed49e5a" name="Changes" comment="0.2.1 add logs to incrementActiveSets">
+    <list default="true" id="ffb09780-1bf9-4056-acf4-23340ed49e5a" name="Changes" comment="0.2.3 exportInitData improve">
+      <change afterPath="$PROJECT_DIR$/build/src/SharedMap/SharedMapConstructorOParams.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/src/SharedMap/SharedMapConstructorOParams.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/temp/temp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/temp/temp.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test/benchmarks/server/serverMain.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test/benchmarks/server/serverMain.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test/benchmarks/server/serverWorker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/test/benchmarks/server/serverWorker.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/temp/temp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/benchmarks/server/serverMain.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/swap-history.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/swap-history.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/SharedMap/ISharedMapInitData.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/SharedMap/ISharedMapInitData.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/SharedMap/SharedMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/SharedMap/SharedMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/SharedMap/SharedMap.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/SharedMap/SharedMap.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/temp/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/temp/test.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test/benchmarks/server/server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test/benchmarks/server/server.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SharedMap/ISharedMapInitData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedMap/SharedMapConstructorOParams.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SharedMap/SharedMap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharedMap/SharedMap.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/benchmarks/server/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/benchmarks/server/serverWorker.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/helpers/MessageToWorker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/helpers/MessageToWorker.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +195,11 @@
       <workItem from="1706070397572" duration="8838000" />
       <workItem from="1706124639642" duration="4202000" />
       <workItem from="1706222588730" duration="6892000" />
-      <workItem from="1706331465359" duration="20988000" />
+      <workItem from="1706331465359" duration="21583000" />
+      <workItem from="1706425704208" duration="5812000" />
+      <workItem from="1706537938458" duration="583000" />
+      <workItem from="1706703838942" duration="1870000" />
+      <workItem from="1706795210243" duration="6100000" />
     </task>
     <task id="LOCAL-00001" summary="create">
       <option name="closed" value="true" />
@@ -245,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706375346396</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="0.2.2 remove logs">
+      <option name="closed" value="true" />
+      <created>1706380645538</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1706380645538</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,6 +307,8 @@
     <MESSAGE value="0.1.4 fix" />
     <MESSAGE value="0.2.0 New hash logic, collision fix" />
     <MESSAGE value="0.2.1 add logs to incrementActiveSets" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.2.1 add logs to incrementActiveSets" />
+    <MESSAGE value="0.2.2 remove logs" />
+    <MESSAGE value="0.2.3 exportInitData improve" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.2.3 exportInitData improve" />
   </component>
 </project>
