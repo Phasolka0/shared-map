@@ -7,6 +7,7 @@ export default class SharedMap {
     sizeArray;
     globalLockArray;
     activeSets;
+    isFullArray;
     maxSize;
     maxPrecision;
     scalingFactor;
@@ -21,21 +22,24 @@ export default class SharedMap {
             const valuesArraySize = size * Float64Array.BYTES_PER_ELEMENT;
             const lockArraySize = size * Int32Array.BYTES_PER_ELEMENT;
             const sizeArraySize = Int32Array.BYTES_PER_ELEMENT;
+            const isFullSize = Int32Array.BYTES_PER_ELEMENT;
             const globalLockArraySize = Int32Array.BYTES_PER_ELEMENT;
             const activeSetsSize = Int32Array.BYTES_PER_ELEMENT;
-            const totalSize = keysArraySize + valuesArraySize + lockArraySize + sizeArraySize + globalLockArraySize + activeSetsSize;
+            const totalSize = keysArraySize + valuesArraySize + lockArraySize + sizeArraySize + isFullSize + globalLockArraySize + activeSetsSize;
             this.sharedArrayBuffer = new SharedArrayBuffer(totalSize);
         }
         const keysArrayOffset = 0;
         const valuesArrayOffset = keysArrayOffset + size * Float64Array.BYTES_PER_ELEMENT;
         const lockArrayOffset = valuesArrayOffset + size * Float64Array.BYTES_PER_ELEMENT;
         const sizeArrayOffset = lockArrayOffset + size * Int32Array.BYTES_PER_ELEMENT;
-        const globalLockOffset = sizeArrayOffset + Int32Array.BYTES_PER_ELEMENT;
+        const isFullOffset = sizeArrayOffset + Int32Array.BYTES_PER_ELEMENT;
+        const globalLockOffset = isFullOffset + Int32Array.BYTES_PER_ELEMENT;
         const activeSetsOffset = globalLockOffset + Int32Array.BYTES_PER_ELEMENT;
         this.keysArray = new Float64Array(this.sharedArrayBuffer, keysArrayOffset, size);
         this.valuesArray = new Float64Array(this.sharedArrayBuffer, valuesArrayOffset, size);
         this.lockArray = new Int32Array(this.sharedArrayBuffer, lockArrayOffset, size);
         this.sizeArray = new Int32Array(this.sharedArrayBuffer, sizeArrayOffset, 1);
+        this.isFullArray = new Int32Array(this.sharedArrayBuffer, isFullOffset, 1);
         this.globalLockArray = new Int32Array(this.sharedArrayBuffer, globalLockOffset, 1);
         this.activeSets = new Int32Array(this.sharedArrayBuffer, activeSetsOffset, 1);
         this.maxSize = size;
@@ -48,6 +52,9 @@ export default class SharedMap {
     }
     get size() {
         return this.sizeArray[0];
+    }
+    get isFull() {
+        return this.isFullArray[0] !== 0;
     }
     set(key, value) {
         this.incrementActiveSets();
@@ -88,6 +95,7 @@ export default class SharedMap {
         this.valuesArray.fill(0);
         //this.lockArray.fill(0);
         this.sizeArray[0] = 0;
+        Atomics.store(this.isFullArray, 0, 0);
         this.releaseGlobalLock();
         //console.log('clear end')
     }
@@ -107,6 +115,8 @@ export default class SharedMap {
     }
     IncreaseSize() {
         Atomics.add(this.sizeArray, 0, 1);
+        if (this.sizeArray[0] >= this.maxSize)
+            Atomics.store(this.isFullArray, 0, 1);
     }
     // private keyToIndex(key: number): number {
     // 	let hash = Math.floor(key * this.scalingFactor)

@@ -4,7 +4,7 @@ import {generateRandomNumber} from "../helpers/utils";
 let sharedMap: SharedMap
 const size = 100003
 describe('SharedMap', () => {
-	beforeAll(() => {
+	beforeEach(() => {
 		sharedMap = new SharedMap({size}) as any;
 	})
 	describe('Constructor', () => {
@@ -136,6 +136,27 @@ describe('SharedMap', () => {
 			}
 			await sharedMap.clear();
 			expect(sharedMap.size).toBe(0);
+		});
+	});
+	
+	describe('isFull getter', () => {
+		test('should start as not full', () => {
+			expect(sharedMap.isFull).toBeFalsy();
+		});
+		
+		test('should be full when enough elements are added', () => {
+			for (let i = 1; i <= size; i++) {
+				sharedMap.set(i, i);
+			}
+			expect(sharedMap.isFull).toBeTruthy();
+		});
+		
+		test('should not be full after clear', () => {
+			for (let i = 1; i <= size; i++) {
+				sharedMap.set(i, i);
+			}
+			sharedMap.clear();
+			expect(sharedMap.isFull).toBeFalsy();
 		});
 	});
 	

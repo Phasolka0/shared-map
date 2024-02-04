@@ -8,8 +8,8 @@
     "build": "npm i && rimraf ./build && tsc",
     "start": "npm run build && node build/index.js",
     "test": "npm run build && jest --maxWorkers=1 --bail",
-    "benchmark-server": "node --trace-opt --trace-deopt --loader ts-node/esm test/benchmarks/server/serverMain.ts",
-    "benchmark-proxy": "node --loader ts-node/esm test/benchmarks/proxyServer.ts",
+    "benchmark-server": "node --loader ts-node/esm test/benchmarks/server/serverMain.ts",
+    "benchmark-server-trace": "node --trace-opt --trace-deopt --loader ts-node/esm test/benchmarks/server/serverMain.ts",
     "benchmark": "npm run build && npm run benchmark-server"
   },
   "keywords": [],

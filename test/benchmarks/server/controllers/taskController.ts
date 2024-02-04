@@ -73,7 +73,19 @@ export const handleTaskRequest = async (req: Request, res: Response) => {
 	} else if (method === 'regenerate') {
 		regenerateData()
 		res.end();
-		
+	} else if (method === 'size') {
+		let dummy = 0;
+		for (let i = 0; i < 1000000; i++) {
+			dummy += usedMap.size;
+		}
+		res.end(dummy.toString());
+	} else if (method === 'isFull') {
+		let dummy = 0;
+		for (let i = 0; i < 1000000; i++) {
+			// @ts-ignore
+			dummy += usedMap.isFull ? 1 : 0;
+		}
+		res.end(dummy.toString());
 	} else {
 		res.status(400).send('Invalid method');
 	}
